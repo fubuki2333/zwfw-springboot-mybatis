@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/boot-zwfw/boot-zwfw.iml" filepath="$PROJECT_DIR$/boot-zwfw/boot-zwfw.iml" />
-      <module fileurl="file://$PROJECT_DIR$/boot-zwfw-manage/boot-zwfw-manage.iml" filepath="$PROJECT_DIR$/boot-zwfw-manage/boot-zwfw-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-zwfw/zwfw.iml" filepath="$PROJECT_DIR$/boot-zwfw/zwfw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-zwfw-manage/zwfw-manage.iml" filepath="$PROJECT_DIR$/boot-zwfw-manage/zwfw-manage.iml" />
     </modules>
   </component>
 </project>

@@ -6,19 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="boot-zwfw-manage" />
-        <module name="boot-zwfw" />
+        <module name="zwfw" />
+        <module name="zwfw-manage" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="boot-zwfw" target="1.8" />
       <module name="boot-zwfw-manage" target="1.8" />
+      <module name="zwfw" target="1.8" />
+      <module name="zwfw-manage" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="boot-zwfw" options="-parameters" />
       <module name="boot-zwfw-manage" options="-parameters" />
+      <module name="zwfw" options="-parameters" />
+      <module name="zwfw-manage" options="-parameters" />
     </option>
   </component>
 </project>
