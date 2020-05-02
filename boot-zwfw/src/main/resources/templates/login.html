@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="css/zwfw.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/layui/layui.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default nav-default">
+    <div class="container-fluid nav-header">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img style="width: 170px" alt="Brand" src="img/syzwfw-logo.png">
+            </a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">沈阳政务服务网</span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid login-main">
+    <div class="login-div">
+        <h2><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> 用户登录</h2>
+        <hr>
+        <form class="form-horizontal login-form" action="/login" method="post">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputEmail3" name="user" placeholder="请输入用户名...">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" name="pwd" placeholder="请输入密码...">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">登录</button>
+                </div>
+            </div>
+            <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 th:text="${error}" th:if="${error!=null}">
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div>
+                        <label>
+                            还没有账号？<a href="/register">去注册</a>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:insert="footer :: foot"></div>
+</body>
+</html>

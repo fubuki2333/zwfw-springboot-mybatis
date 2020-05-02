@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/admin.css">
+
+<body>
+
+<!--导航栏-->
+<ul class="layui-nav" th:fragment="top-nav">
+    <li class="layui-nav-item">
+        <a href="/admin"><h3>沈阳市政务服务管理系统</h3></a>
+    </li>
+    <li class="layui-nav-item" lay-unselect="" style="float: right">
+        <a href="javascript:;"><img src="//t.cn/RCzsdCq" class="layui-nav-img">我</a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:;">个人信息</a></dd>
+            <dd><a href="javascript:;">退出登录</a></dd>
+        </dl>
+    </li>
+</ul>
+
+<ul class="layui-nav layui-nav-tree nav-tree" lay-filter="test" th:fragment="left-nav-tree">
+    <li class="layui-nav-item layui-nav-itemed">
+        <a href="javascript:;">用户相关</a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:$('#frame').attr('src','/admin/user/manage');">用户信息管理</a></dd>
+            <dd><a href="javascript:;">实名认证审核</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item layui-nav-itemed">
+        <a href="javascript:;">审批相关</a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:$('#frame').attr('src','/admin/treatment/manage');">异地医疗报备审批</a></dd>
+            <dd><a href="javascript:$('#frame').attr('src','/admin/apply/manage');">异地医疗报销审批</a></dd>
+            <dd><a href="javascript:;">医保卡挂失审批</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item layui-nav-itemed">
+        <a href="javascript:;">新闻管理</a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:$('#frame').attr('src','/admin/news/add');">新闻发布</a></dd>
+            <dd><a href="javascript:$('#frame').attr('src','/admin/news/manage');">新闻管理</a></dd>
+            <dd><a href="javascript:;">首页头图管理</a></dd>
+        </dl>
+    </li>
+</ul>
+
+</body>
+
+</html>
+

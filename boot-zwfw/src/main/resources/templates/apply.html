@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异地医疗报销申报</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/zwfw.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/layui/layui.js"></script>
+</head>
+<body>
+<div th:insert="navigation :: nav"></div>
+<div class="apply-main">
+    <div class="layui-row message-div">
+        <div class="layui-col-md3 tree-div">
+            <ul class="layui-nav layui-nav-tree" style="height: 100%" lay-filter="test">
+                <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+                <li class="layui-nav-item"><a href="/apply">信息申报</a></li>
+                <li class="layui-nav-item"><a href="/mymessage">个人信息</a></li>
+                <li class="layui-nav-item"><a href="/applylog">申报记录</a></li>
+                <li class="layui-nav-item"><a href="/logout">退出登录</a></li>
+            </ul>
+            <script>
+                layui.use('element', function(){
+                    var element = layui.element;
+
+                    //…
+                });
+            </script>
+        </div>
+        <!-- 申报模块 -->
+        <div class="layui-col-md9 message-input">
+            <form class="layui-form" action="/apply" method="post">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">申请人</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" required  lay-verify="required" placeholder="请输入申请人姓名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">身份证</label>
+                    <button type="button" class="layui-btn form-btn" id="idcard">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                    </button>
+                    <input type="hidden" id="test1" name="idcard" value="">
+                    <span id="worn1"></span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">医保卡号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="careid" required  lay-verify="required" placeholder="请输入医保卡号" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">医保卡</label>
+                    <button type="button" class="layui-btn form-btn" id="care">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                    </button>
+                    <input type="hidden" id="test2" name="care" value="">
+                    <span id="worn2"></span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">入院日期</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="date" class="layui-input" required id="date">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">明细清单</label>
+                    <button type="button" class="layui-btn form-btn" id="prescription">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                    </button>
+                    <input type="hidden" id="test3" name="prescription" value="">
+                    <span id="worn3"></span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">医药费发票</label>
+                    <button type="button" class="layui-btn form-btn" id="invoice">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                    </button>
+                    <input type="hidden" id="test4" name="invoice" value="">
+                    <span id="worn4"></span>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn">立即提交</button>
+                    </div>
+                </div>
+            </form>
+
+            <script>
+                layui.use('form', function(){
+                    var form = layui.form;
+
+                    //监听提交
+                    form.on('submit(formDemo)', function(data){
+                        layer.msg(JSON.stringify(data.field));
+                        return false;
+                    });
+                });
+                layui.use('laydate', function(){
+                    var laydate = layui.laydate;
+
+                    //执行一个laydate实例
+                    laydate.render({
+                        elem: '#date' //指定元素
+                    });
+                });
+                layui.use('upload', function(){
+                    var upload = layui.upload;
+
+                    //执行实例
+                    var uploadInst = upload.render({
+                        elem: '#idcard' //绑定元素
+                        ,url: '/files/upload' //上传接口
+                        ,done: function(res){
+                            //上传完毕回调
+                            if (res.message != ""){
+                                document.getElementById('worn1').innerText=res.message;
+                            }
+                            document.getElementById('test1').value=res.url;
+                            console.log(document.getElementById('test1').value);
+                        }
+                        ,error: function(){
+                            //请求异常回调
+                        }
+                    });
+
+                    var uploadInst2 = upload.render({
+                        elem: '#care' //绑定元素
+                        ,url: '/files/upload' //上传接口
+                        ,done: function(res){
+                            //上传完毕回调
+                            if (res.message != ""){
+                                document.getElementById('worn2').innerText=res.message;
+                            }
+                            console.log(res);
+                            document.getElementById('test2').value=res.url;
+                            console.log(document.getElementById('test2').value);
+                        }
+                        ,error: function(){
+                            //请求异常回调
+                        }
+                    });
+
+                    var uploadInst3 = upload.render({
+                        elem: '#prescription' //绑定元素
+                        ,url: '/files/upload' //上传接口
+                        ,done: function(res){
+                            //上传完毕回调
+                            if (res.message != ""){
+                                document.getElementById('worn3').innerText=res.message;
+                            }
+                            console.log(res);
+                            document.getElementById('test3').value=res.url;
+                            console.log(document.getElementById('test3').value);
+                        }
+                        ,error: function(){
+                            //请求异常回调
+                        }
+                    });
+
+                    var uploadInst4 = upload.render({
+                        elem: '#invoice' //绑定元素
+                        ,url: '/files/upload' //上传接口
+                        ,done: function(res){
+                            //上传完毕回调
+                            if (res.message != ""){
+                                document.getElementById('worn4').innerText=res.message;
+                            }
+                            console.log(res);
+                            document.getElementById('test4').value=res.url;
+                            console.log(document.getElementById('test4').value);
+                        }
+                        ,error: function(){
+                            //请求异常回调
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<div th:insert="footer :: foot"></div>
+</body>
+</html>

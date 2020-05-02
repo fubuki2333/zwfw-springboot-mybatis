@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异地医疗报销申报</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/zwfw.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/layui/layui.js"></script>
+</head>
+<body>
+<div th:insert="navigation :: nav"></div>
+<div class="apply-main">
+    <div class="layui-row message-div">
+        <div class="layui-col-md3 tree-div">
+            <!-- 侧边导航栏 -->
+            <ul class="layui-nav layui-nav-tree" style="height: 100%" lay-filter="test">
+                <li class="layui-nav-item"><a href="/apply">信息申报</a></li>
+                <li class="layui-nav-item"><a href="/mymessage">个人信息</a></li>
+                <li class="layui-nav-item"><a href="/applylog">申报记录</a></li>
+                <li class="layui-nav-item"><a href="/logout">退出登录</a></li>
+            </ul>
+            <script>
+                layui.use('element', function(){
+                    var element = layui.element;
+
+                    //…
+                });
+            </script>
+        </div>
+        <!-- 个人信息 -->
+        <div class="layui-col-md9 message-input">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td>登录名</td>
+                    <td th:text="${userName}"></td>
+                </tr>
+                <tr>
+                    <td>姓名</td>
+                    <td th:text="${realName}"></td>
+                </tr>
+                <tr>
+                    <td>身份证</td>
+                    <td th:text="${idcard}"></td>
+                </tr>
+                <tr>
+                    <td>电话</td>
+                    <td th:text="${tel}"></td>
+                </tr>
+                <tr>
+                    <td>邮箱</td>
+                    <td th:text="${email}"></td>
+                </tr>
+                <tr>
+                    <td>住址</td>
+                    <td th:text="${address}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<div th:insert="footer :: foot"></div>
+</body>
+</html>

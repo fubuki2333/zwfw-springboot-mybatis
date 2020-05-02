@@ -1,0 +1,32 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.main {
+    height: 100%;
+}
+
+.main .main-div {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 60px;
+    bottom: 0;
+}
+
+.main .main-div .left-nav {
+    height: 100%;
+}
+
+.main .main-div .right-message {
+    height: 100%;
+}
+
+.main .main-div .left-nav .nav-tree {
+    height: 100%;
+    width: 100%;
+}

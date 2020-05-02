@@ -1,0 +1,106 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.nav-default {
+    margin-bottom: 0px;
+    height: 80px;
+}
+
+.nav-header {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 15px 0 15px 0;
+}
+
+.navbar-brand {
+    padding-top: 10px;
+}
+
+.zwfw_search {
+    width: 100%;
+    height: 280px;
+    padding-top: 100px;
+    background: url("/img/index-background.jpg") center center no-repeat;
+}
+
+.zwfw_search .content {
+    width: 1160px;
+    margin: 0 auto;
+    height: auto;
+}
+
+.zwfw_search .content .welcome {
+    color: #fff;
+    font-size: 42px;
+    line-height: 48px;
+    letter-spacing: 2px;
+}
+
+.zwfw_search .content .search {
+    padding-top: 40px;
+    width: 500px;
+}
+
+.main {
+    width: 1000px;
+    text-align: -webkit-center;
+    margin-top: 30px;
+    background-color: white;
+}
+
+.main .row .news-div {
+    text-align: initial;
+}
+
+.login-main {
+    background-color: #ddd;
+}
+
+.login-main .login-div {
+    margin: 250px auto;
+    background-color: white;
+    width: 550px;
+    padding: 10px;
+    border-radius: 3%;
+}
+
+.login-main .login-div .login-form {
+    width: 500px;
+}
+
+.apply-main {
+    height: auto;
+}
+
+.apply-main .message-div {
+    margin: 50px auto;
+    height: 600px;
+    width: 1000px;
+    border: 1px solid gray;
+}
+
+.apply-main .message-div .tree-div {
+    height: 100%;
+}
+
+.apply-main .message-div .message-input {
+    height: 100%;
+    width: 600px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.form-btn {
+    margin-left: 15px;
+}
+
+.footer {
+    padding: 10px 25%;
+    color: #666;
+}
+

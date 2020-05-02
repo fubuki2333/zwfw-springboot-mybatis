@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>政务服务首页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/zwfw.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/layui/layui.js"></script>
+</head>
+<body>
+<div th:insert="navigation :: nav"></div>
+<div class="search">
+    <div class="zwfw_search">
+        <div class="content">
+            <div class="welcome">
+                沈阳市欢迎你
+            </div>
+            <div class="input-group search">
+                <input type="text" class="form-control" placeholder="请输入需要办理的事项">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">搜索</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="layui-carousel" id="test1">
+                <div carousel-item>
+                    <div><img src="img/index-ad/kybg.jpg" alt="" style="width: 100%"></div>
+                    <div><img src="img/index-ad/lblg.jpg" alt="" style="width: 100%"></div>
+                    <div><img src="img/index-ad/kybg.jpg" alt="" style="width: 100%"></div>
+                    <div><img src="img/index-ad/lblg.jpg" alt="" style="width: 100%"></div>
+                </div>
+            </div>
+
+            <script src="/static/build/layui.js"></script>
+            <script>
+                layui.use('carousel', function(){
+                    var carousel = layui.carousel;
+                    //建造实例
+                    carousel.render({
+                        elem: '#test1'
+                        ,width: '100%' //设置容器宽度
+                        ,arrow: 'none' //始终显示箭头
+                        //,anim: 'updown' //切换动画方式
+                    });
+                });
+            </script>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 news-div">
+            <h3>新闻资讯</h3>
+            <hr>
+            <div class="list-group">
+                <a href="#" class="list-group-item" th:each="message : ${news.data}" th:text="${message.title}"></a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h3>热门服务</h3>
+            <hr>
+            <div class="list-group">
+                <a href="/apply" class="list-group-item">异地医疗报销申报</a>
+                <a href="/treatmentRecord" class="list-group-item">异地医疗信息报备</a>
+                <a href="#" class="list-group-item">医保卡挂失</a>
+                <a href="#" class="list-group-item">医院预约挂号</a>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h3>服务成效</h3>
+            <hr>
+            <div class="row" style="margin: 20px">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 itemCon_num L">
+                    <div class="itemCon_num1"><a style="color: #255bda; font-size: 30px;">1,520万</a></div>
+                    <div class="itemCon_num2">办件量</div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 itemCon_num L">
+                    <div class="itemCon_num1"><a style="color: #255bda; font-size: 30px;">442</a></div>
+                    <div class="itemCon_num2">收到差评数</div>
+                </div>
+            </div>
+            <div class="row" style="margin: 20px">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 itemCon_num L">
+                    <div class="itemCon_num1"><a style="color: #255bda; font-size: 30px;">100%</a></div>
+                    <div class="itemCon_num2">差评整改率</div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 itemCon_num L">
+                    <div class="itemCon_num1"><a style="color: #255bda; font-size: 30px;">98.52%</a></div>
+                    <div class="itemCon_num2">按期整改率</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="footer :: foot"></div>
+</body>
+</html>
